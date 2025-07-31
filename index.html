@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resumen de Pagos - Majito</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+
+      /* Fondo GIF animado */
+      background-image: url('https://wallpapershome.com/images/pages/ico_h/5708.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .foto-circular {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .responsabilidad {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-left: 5px solid #2196f3;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Reclutadora: Maria Jose Gomez </h1>
+  <img src="https://scontent.fpty1-1.fna.fbcdn.net/v/t39.30808-6/489415074_9779705395409623_7111414946290501406_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KJGGhdbl1scQ7kNvwEm4TE6&_nc_oc=AdlDkXGn5qmTtSEb3rI0DX6NSgdnAwzNgrHSlzQGnwmgxPWUe85RSlKZkK5PILR11jQ&_nc_zt=23&_nc_ht=scontent.fpty1-1.fna&_nc_gid=1eRKNceFvc8mWeDgHrCBQg&oh=00_AfSQE0HYcB-kmMjMCbeN0QjmprOrSFPwq_-mGq8bM5vjRw&oe=68912738" alt="Foto de Majito" class="foto-circular" />
+
+  <div class="responsabilidad">
+    <p>Majito es la encargada de supervisar a las vendedoras salvadoreñas en caso de que enfrenten problemas con los clientes.</p>
+    <p>Además, debe recibir un pago mensual por su labor como jefa recolectora y consejera de las vendedoras sordas salvadoreñas.</p>
+  </div>
+
+  <h2>Ganancias del Mes</h2>
+  <table id="tablaPagos">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Monto Enviado</th>
+        <th>Fecha</th>
+        <th>¿Enviado?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Jeimy</td><td>$20</td><td>30 de Agosto de  2025</td><td>✅</td></tr>
+      <tr><td>Pink</td><td>$20</td><td>30 de Agosto de  2025</td><td>✅</td></tr>
+      <tr><td>Mike</td><td>$20</td><td>30 de Agosto de  2025</td><td>✅</td></tr>
+      <tr><td>Eglenia</td><td>$20</td><td>30 de Agosto de  2025</td><td>✅</td></tr>
+      <tr><td>Andrea</td><td>$20</td><td>30 de Agosto de  2025</td><td>✅</td></tr>
+      <tr><td>Sandy</td><td>$20</td><td>30 de Agosto de  2025</td><td>✅</td></tr>
+    </tbody>
+  </table>
+
+  <div class="total" id="total">Total recibido: $0</div>
+
+  <script>
+    const tabla = document.getElementById('tablaPagos').getElementsByTagName('tbody')[0];
+    let total = 0;
+
+    for (let fila of tabla.rows) {
+      const monto = fila.cells[1].innerText.replace('$', '');
+      total += parseFloat(monto);
+    }
+
+    document.getElementById('total').innerText = `Total recibido: $${total}`;
+  </script>
+
+</body>
+</html>
