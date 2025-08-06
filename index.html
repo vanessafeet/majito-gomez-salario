@@ -2,14 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Resumen de Pagos - Majito</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
       color: #333;
-
       /* Fondo GIF animado */
       background-image: url('https://wallpapershome.com/images/pages/ico_h/5708.jpg');
       background-size: cover;
@@ -44,6 +43,7 @@
       width: 100%;
       border-collapse: collapse;
       background-color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 20px;
     }
 
     th, td {
@@ -59,19 +59,27 @@
 
     .total {
       text-align: right;
-      margin-top: 15px;
       font-weight: bold;
       font-size: 18px;
       background-color: rgba(255, 255, 255, 0.9);
       padding: 10px;
       border-radius: 5px;
+      margin-bottom: 30px;
+    }
+
+    #graficoContainer {
+      max-width: 600px;
+      margin: 0 auto 50px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
 
   <h1>Reclutadora: Maria Jose Gomez </h1>
-  <img src="https://scontent.fpty1-1.fna.fbcdn.net/v/t39.30808-6/489415074_9779705395409623_7111414946290501406_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KJGGhdbl1scQ7kNvwEm4TE6&_nc_oc=AdlDkXGn5qmTtSEb3rI0DX6NSgdnAwzNgrHSlzQGnwmgxPWUe85RSlKZkK5PILR11jQ&_nc_zt=23&_nc_ht=scontent.fpty1-1.fna&_nc_gid=1eRKNceFvc8mWeDgHrCBQg&oh=00_AfSQE0HYcB-kmMjMCbeN0QjmprOrSFPwq_-mGq8bM5vjRw&oe=68912738" alt="Foto de Majito" class="foto-circular" />
+  <img src="https://scontent.fpty1-1.fna.fbcdn.net/v/t39.30808-6/486581273_9689832931063537_2775192674924426742_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=3guNmCcc6pQQ7kNvwFappt4&_nc_oc=AdnxZzAGe0-IobHG44s2vHZH_n88h8zUlMhjrsHXapm2TkvoIATrLnm0xf06FBLtEoM&_nc_zt=23&_nc_ht=scontent.fpty1-1.fna&_nc_gid=DeDKi83S5QzQYaKS4QGv8w&oh=00_AfWdP7oOE-9-iucDkS596JWUWzkmvPhfRf7DQcu_v9Wlrw&oe=68992AA4" alt="Foto de Majito" class="foto-circular" />
 
   <div class="responsabilidad">
     <p>Majito es la encargada de supervisar a las vendedoras salvadoreñas en caso de que enfrenten problemas con los clientes.</p>
@@ -85,34 +93,106 @@
         <th>Nombre</th>
         <th>Monto Enviado</th>
         <th>Fecha</th>
-          <th>Estado</th>
-
+        <th>Estado</th>
         <th>¿Enviado?</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Jeimy</td><td>$20</td><td>30 de Agosto de  2025</td><td>Activa</td><td>✅</td></tr>
-      <tr><td>Pink</td><td>$20</td><td>30 de Agosto de  2025</td><td>Inactiva</td><td>✅</td></tr>
-      <tr><td>Mike</td><td>$20</td><td>30 de Agosto de  2025</td><td>Activo</td><td>✅</td></tr>
-      <tr><td>Mariela</td><td>$20</td><td>30 de Agosto de  2025</td><td>Activa</td><td>✅</td></tr>
-      <tr><td>Andrea</td><td>$20</td><td>30 de Agosto de  2025</td><td>Inactiva</td><td>✅</td></tr>
-      <tr><td>Sandy</td><td>$20</td><td>30 de Agosto de  2025</td><td>Activa</td><td>✅</td></tr>
-       <tr><td>Ana Bellen</td><td>$20</td><td>30 de Agosto de  2025</td><td>Activa</td><td>✅</td></tr>
+      <tr><td>Jeimy</td><td>$20</td><td>30 de Agosto de 2025</td><td>Activa</td><td>✅</td></tr>
+      <tr><td>Pink</td><td>$20</td><td>30 de Agosto de 2025</td><td>Inactiva</td><td>✅</td></tr>
+      <tr><td>Mike</td><td>$20</td><td>30 de Agosto de 2025</td><td>Activo</td><td>✅</td></tr>
+      <tr><td>Mariela</td><td>$20</td><td>30 de Agosto de 2025</td><td>Activa</td><td>✅</td></tr>
+      <tr><td>Andrea</td><td>$20</td><td>30 de Agosto de 2025</td><td>Inactiva</td><td>✅</td></tr>
+      <tr><td>Sandy</td><td>$20</td><td>30 de Agosto de 2025</td><td>Activa</td><td>✅</td></tr>
+      <tr><td>Ana Bellen</td><td>$20</td><td>30 de Agosto de 2025</td><td>Activa</td><td>✅</td></tr>
     </tbody>
   </table>
 
   <div class="total" id="total">Total recibido: $0</div>
 
+  <div id="graficoContainer">
+    <canvas id="graficoPagos"></canvas>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Plugin para mostrar etiquetas dentro del gráfico -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
   <script>
     const tabla = document.getElementById('tablaPagos').getElementsByTagName('tbody')[0];
     let total = 0;
+    const nombres = [];
+    const montos = [];
 
     for (let fila of tabla.rows) {
-      const monto = fila.cells[1].innerText.replace('$', '');
-      total += parseFloat(monto);
+      const nombre = fila.cells[0].innerText;
+      const montoStr = fila.cells[1].innerText.replace('$', '');
+      const monto = parseFloat(montoStr);
+
+      nombres.push(nombre);
+      montos.push(monto);
+      total += monto;
     }
 
     document.getElementById('total').innerText = `Total recibido: $${total}`;
+
+    const ctx = document.getElementById('graficoPagos').getContext('2d');
+    const colores = [
+      '#2196f3','#e91e63','#ff9800','#4caf50','#9c27b0','#00bcd4','#f44336'
+    ];
+
+    const grafico = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: nombres,
+        datasets: [{
+          label: 'Monto Enviado',
+          data: montos,
+          backgroundColor: colores,
+          borderColor: '#fff',
+          borderWidth: 2,
+          hoverOffset: 30
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 14,
+                weight: 'bold'
+              },
+              color: '#333'
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `${context.label}: $${context.parsed}`;
+              }
+            }
+          },
+          datalabels: {
+            color: 'white',
+            font: {
+              weight: 'bold',
+              size: 14
+            },
+            formatter: function(value, context) {
+              const nombre = context.chart.data.labels[context.dataIndex];
+              const monto = value;
+              return `${nombre}\n$${monto}`;
+            },
+            anchor: 'center',
+            align: 'center'
+          }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
   </script>
 
 </body>
